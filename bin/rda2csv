@@ -1,0 +1,11 @@
+#!/usr/bin/env Rscript
+
+argv <- commandArgs(TRUE)
+inFile <- toString(argv[1])
+print(inFile)
+
+outFile <- gsub(".rda$", ".csv", inFile)
+print(outFile)
+
+inData <- load(inFile)
+write.csv(get(inData), file=outFile)
